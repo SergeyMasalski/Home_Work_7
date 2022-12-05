@@ -3,9 +3,10 @@
 }
 
 :root {
-    --gap-collumn: 0.5vw;
+    --gap-collumn: 1vw;
     --gap-txt-icon: 4px;
-    --width-collumn: calc(100%/3 - var(--gap-collumn)*4);
+    --number-cards: 3;
+    --width-collumn: calc((100vw - var(--gap-collumn)*4)/3);
     --font-size-header: 1rem;
     --line-height-header: calc(var(--font-size-header)*1.4);
     --padding-top-botheader: 15px;
@@ -41,13 +42,15 @@ header {
     background-color: #019E9E;
     display: grid;
     grid-template-columns: repeat(3, var(--width-collumn));
-    justify-content: space-evenly;
+    justify-content: start;
+    column-gap: var(--gap-collumn);
+    padding-left: var(--gap-collumn);
 }
 
 .card {
     background-color: #DCDCDC;
     gap: 1.5vh;
-    margin: calc(var(--gap-collumn)*3) 0;
+    margin: calc(var(--gap-collumn)) 0;
     border-radius: 8px;
     display: flex;
     flex-flow: column nowrap;
