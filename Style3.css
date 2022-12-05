@@ -36,6 +36,12 @@ header {
     align-self: center;
     line-height: var(--line-height-header);
     padding: var(--padding-top-botheader) 2vw;
+    position: relative;
+}
+
+header>span {
+    position: sticky;
+    left: 2vw;
 }
 
 .maincontent {
