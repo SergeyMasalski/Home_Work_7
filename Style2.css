@@ -1,0 +1,108 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --width-firstperson: 30%;
+    --width-messenge: calc(100% - var(--width-secondperson) - var(--width-firstperson) - var(--gap-collumn-messege)*2);
+    --width-secondperson: 45%;
+    --gap-collumn-messege: 1vw;
+    --font-size-name: 1rem;
+    --line-height-name: calc(var(--font-size-name)*1.4);
+    --font-size-time: 0.7rem;
+    --line-height-time: calc(var(--font-size-time)*1.4);
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: #F5F5F5;
+    row-gap: 2vh;
+    padding: 20px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.messege {
+    display: flex;
+    flex-flow: row nowrap;
+    column-gap: var(--gap-collumn-messege);
+    align-items: flex-end;
+}
+
+.messege>div:first-of-type {
+    width: var(--width-firstperson);
+    display: flex;
+    justify-content: end;
+}
+
+.messege:nth-of-type(odd)>div:first-of-type .img1 {
+    background: url(img2/avatar_2.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.messege:nth-of-type(even)>div:last-of-type .img2 {
+    background: url(img2/avatar_1.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.messege>div:nth-of-type(2) {
+    width: var(--width-messenge);
+    padding: 15px;
+}
+
+.messege:nth-of-type(odd)>div:nth-of-type(2) {
+    background-color: #FFB6C1;
+    border-radius: 20px 20px 20px 0;
+}
+
+.messege:nth-of-type(even)>div:nth-of-type(2) {
+    background-color: #ADD8E6;
+    border-radius: 20px 20px 0 20px;
+}
+
+.messege>div:last-of-type {
+    width: var(--width-secondperson);
+    display: flex;
+}
+
+.messege:nth-of-type(even)>div:last-of-type .name_time {
+    align-items: flex-start;
+}
+
+.messege:nth-of-type(odd)>div:first-of-type .name_time {
+    align-items: flex-end;
+}
+
+.img1,
+.img2 {
+    width: calc((var(--line-height-name) + var(--line-height-time))*1.3);
+    height: calc((var(--line-height-name) + var(--line-height-time))*1.3);
+}
+
+.img1 {
+    order: 1;
+}
+
+.name_time {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: start;
+    padding-top: 5px;
+}
+
+.name_time div:first-of-type {
+    line-height: var(--line-height-name);
+}
+
+.name_time div:last-of-type {
+    font-size: var(--font-size-time);
+    line-height: var(--line-height-time);
+    color: #A3B4D0;
+}
