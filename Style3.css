@@ -55,6 +55,7 @@ header {
     display: flex;
     flex-flow: column nowrap;
     padding: var(--padding-card);
+    overflow: auto;
 }
 
 .messege {
