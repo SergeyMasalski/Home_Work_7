@@ -1,0 +1,105 @@
+/* NAVIGATION */
+:root {
+    --padding-element: 1rem;
+    --font-size-element: 1rem;
+    --quantity-elemeent: 3;
+    --witdh-element: 220px;
+    --border-element: 1px;
+    --padding-after: 10px;
+    --width-navigation: calc((var(--font-size-element) + var(--padding-element)*2 + var(--border-element))*var(--quantity-elemeent) + var(--border-element));
+    --height-after: calc(var(--font-size-element)*0.9 + var(--padding-after)*2);
+    --background-after: rgb(95, 158, 160);
+    --color-after: rgb(255, 255, 240);
+    --background-li: rgb(176, 196, 222);
+    --color-a: rgb(224, 255, 255);
+    --gradient-f: rgb(176, 196, 222);
+    --gradient-g: rgb(175, 238, 238);
+}
+
+.navig {
+    display: flex;
+    flex-flow: column nowrap;
+    position: fixed;
+    width: var(--witdh-element);
+    bottom: calc(20px - var(--height-after));
+    right: calc(0px - var(--height-after));
+    z-index: 1;
+    transform: translate(100%, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    animation-name: nav1;
+    animation-delay: 3s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-direction: normal;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    transition: 1s;
+}
+
+.navig li {
+    display: inline-flex;
+    flex-flow: row wrap;
+    border: var(--border-element) solid #888888;
+    background-color: var(--background-li);
+    text-align: center;
+    box-sizing: border-box;
+    padding: var(--padding-element) 0;
+    align-items: center;
+    flex: 0 0 auto;
+    font-size: var(--font-size-element);
+    line-height: var(--font-size-element);
+}
+
+.navig li:not(:nth-of-type(1)) {
+    border-top: none;
+}
+
+.navig::after {
+    content: "Проверка заданий";
+    width: var(--width-navigation);
+    background-color: var(--background-after);
+    display: block;
+    position: relative;
+    left: calc(0px - var(--width-navigation));
+    transform-origin: 100% 0;
+    transform: rotate(90deg);
+    border-radius: 0 0 10px 10px;
+    text-align: center;
+    color: var(--color-after);
+    box-sizing: border-box;
+    padding: var(--padding-after) 0;
+    font-size: calc(var(--font-size-element)*0.9);
+    line-height: calc(var(--font-size-element)*0.9);
+}
+
+.navig:hover {
+    transform: translate(0,0);
+    transition: 1s;
+}
+
+.navig a {
+    height: 100%;
+    width: 100%;
+    display: block;
+    color: var(--color-a);
+    text-decoration: none;
+}
+
+.navig li:hover {
+    background:radial-gradient(center,circle farthest-side, var(--gradient-f), var(--gradient-g));
+    background:-webkit-radial-gradient(center,circle farthest-side, var(--gradient-f), var(--gradient-g));
+    background:-o-radial-gradient(center,circle farthest-side, rgb(176, 196, 222), rgb(175, 238, 238));
+    background:-moz-radial-gradient(center,circle farthest-side,rgb(176, 196, 222), rgb(175, 238, 238));
+}
+
+@keyframes nav1 {
+    0% {
+        right: calc(0px - var(--height-after));
+    }
+    100% {
+        right: 0;
+        position: fixed;
+    }
+}
